@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+  <environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC"/>
+      <dataSource type="POOLED">
+        <property name="driver" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/mybatisTest"/>
+        <property name="username" value="root"/>
+        <property name="password" value="mazhen"/>
+      </dataSource>
+    </environment>
+  </environments>
+  <mappers>
+    <mapper resource="com/zhenma/xmlsqlsessionfactory/MsgInfoMapper.xml"/>
+  </mappers>
+  <!-- MySQL的JDBC URL编写方式：jdbc:mysql://主机名称：连接端口/数据库的名称?参数=值
+                       避免中文乱码要指定useUnicode和characterEncoding
+                       执行数据库操作之前要在数据库管理系统上创建一个数据库，名字自己定，
+                      下面语句之前就要先创建javademo数据库
+       "jdbc:mysql://localhost:3306/javademo?"+ "user=root&password=root&useUnicode=true&characterEncoding=UTF8"; -->
+</configuration>
