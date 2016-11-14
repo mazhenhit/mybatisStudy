@@ -20,22 +20,19 @@ public class XmlSqlSessionFactory {
 
 	/**
 	 * @param args
+	 * @throws IOException 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		String resource = "config/config.xml";
-		InputStream inputStream = null;
-		try {
-			inputStream = Resources.getResourceAsStream(resource);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		InputStream inputStream = Resources.getResourceAsStream(resource);
+
 		SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 
 		SqlSession session = sqlSessionFactory.openSession();
-		MsgInfo msgInfo = null;
 
 		try {
-			msgInfo = (MsgInfo) session.selectOne("com.zhenma.xmlsqlsessionfactory.MsgInfoMapper.selectMsgInfo", 1);
+			MsgInfoMapper msgInfoMapper = session.getMapper(MsgInfoMapper.class);
+			MsgInfo msgInfo = msgInfoMapper.selectMsgInfo(1);
 			System.out.println(msgInfo.toString());
 		} finally {
 			session.close();

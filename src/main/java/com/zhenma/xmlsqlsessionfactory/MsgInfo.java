@@ -16,7 +16,7 @@ public class MsgInfo {
 	private String phone;
 	private String name;
 	private String msg;
-	private Timestamp update_time;
+	private Timestamp updateTime;
 
 	public Integer getId() {
 		return id;
@@ -51,11 +51,11 @@ public class MsgInfo {
 	}
 
 	public Timestamp getUpdateTime() {
-		return update_time;
+		return updateTime;
 	}
 
 	public void setUpdateTime(Timestamp updateTime) {
-		this.update_time = updateTime;
+		this.updateTime = updateTime;
 	}
 
 	@Override
@@ -64,7 +64,7 @@ public class MsgInfo {
 				+ "phone[" + phone + "]; "
 				+ "name[" + name + "]; " 
 				+ "msg[" + msg + "]; " 
-				+ "updateTime[" + update_time + "]";
+				+ "updateTime[" + updateTime + "]";
 	}
 
 }
